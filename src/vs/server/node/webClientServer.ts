@@ -367,7 +367,9 @@ export class WebClientServer {
 			folderUri: resolveWorkspaceURI(this._environmentService.args['default-folder']),
 			workspaceUri: resolveWorkspaceURI(this._environmentService.args['default-workspace']),
 			productConfiguration,
-			callbackRoute: callbackRoute
+			callbackRoute: callbackRoute,
+			// Force localStorage secret storage when environment variable is set
+			forceLocalStorageSecretStorage: process.env.VSCODE_ENABLE_BROWSER_SECRET_STORAGE === 'true'
 		};
 
 		const cookies = cookie.parse(req.headers.cookie || '');
