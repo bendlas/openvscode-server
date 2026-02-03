@@ -21,11 +21,10 @@ import type { RawSourceMap } from 'source-map';
 import ts from 'typescript';
 import watch from './watch/index.ts';
 import * as tsb from './tsb/index.ts';
-import { createTsgoStream } from './tsgo.ts';
 
-const packageJson = require('../../package.json');
-const productJson = require('../../product.json');
-const replace = require('gulp-replace');
+import packageJson from '../../package.json' with { type: 'json' };
+import productJson from '../../product.json' with { type: 'json' };
+import replace from 'gulp-replace';
 
 import { extractExtensionPointNamesFromFile } from './extractExtensionPoints.ts';
 

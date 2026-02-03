@@ -40,8 +40,6 @@ task.task(compileClientTask);
 const watchClientTask = task.define('watch-client', task.parallel(compilation.watchTypeCheckTask('src'), compilation.watchApiProposalNamesTask, compilation.watchExtensionPointNamesTask, compilation.watchCodiconsTask));
 task.task(watchClientTask);
 
-gulp.task(task.define('watch-init', require('./lib/compilation').watchTask('out', false)));
-
 // All
 const _compileTask = task.define('compile', task.parallel(monacoTypecheckTask, compileClientTask, compileExtensionsTask, compileExtensionMediaTask));
 task.task(_compileTask);
