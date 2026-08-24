@@ -71,7 +71,7 @@ function getVSCodeSysrootChecksum(expectedName: string) {
  */
 async function fetchUrl(options: IFetchOptions): Promise<void> {
 	const version = '20260212-405735';
-	const releaseUrl = `https://api.github.com/repos/Microsoft/vscode-linux-build-agent/releases/tags/v${version}`;
+	const releaseUrl = `https://api.github.com/repos/microsoft/vscode-linux-build-agent/releases/tags/v${version}`;
 	const downloadOptions = {
 		attempts: 11,
 		onRetry: (error: Error) => console.log(`Fetching failed: ${error}`)
@@ -79,7 +79,7 @@ async function fetchUrl(options: IFetchOptions): Promise<void> {
 	const releaseContents = await download(releaseUrl, { ...downloadOptions, headers: ghApiHeaders });
 	const asset = JSON.parse(Buffer.from(releaseContents).toString()).assets.find((a: { name: string }) => a.name === options.assetName);
 	if (!asset) {
-		throw new Error(`Could not find asset in release of Microsoft/vscode-linux-build-agent @ ${version}`);
+		throw new Error(`Could not find asset in release of microsoft/vscode-linux-build-agent @ ${version}`);
 	}
 
 	console.log(`Found asset ${options.assetName} @ ${asset.url}.`);
